@@ -1,0 +1,22 @@
+# Intelligent Networks Laboratory (INL)
+
+> The Intelligent Networks Laboratory conducts fundamental and applied research across 6G Open-RAN slicing, kernel-level eBPF security telemetry, software-defined networking (SDN), and quantum optical mesh communications.
+
+## Research Areas
+- **6G Open-RAN & Edge Orchestration**: Sub-millisecond AI-driven network slicing for multi-tenant 6G cellular architectures.
+- **Kernel-Level Security Telemetry**: Low-overhead packet inspection and thread isolation using Linux eBPF probes.
+- **Quantum Mesh Networks**: Entanglement routing protocols and Quantum Key Distribution (QKD) across optical backbone testbeds.
+- **SDN Traffic Engineering**: Hardware offloading of traffic routing algorithms using P4 programmable data plane switches.
+
+## Key Navigation Endpoints
+- [/](https://intelligent-networks-lab.org/): Laboratory overview, research focus areas, citation statistics, and recent announcements.
+- [/research](https://intelligent-networks-lab.org/research): Active research projects, lead investigators, funding sponsors, and technical abstracts.
+- [/publications](https://intelligent-networks-lab.org/publications): Peer-reviewed conference proceedings, journal papers, DOIs, and BibTeX citation exports.
+- [/people](https://intelligent-networks-lab.org/people): Directory of faculty directors, postdoctoral researchers, Ph.D. candidates, and alumni.
+- [/news](https://intelligent-networks-lab.org/news): Lab announcements, grant award notices, and paper acceptance timelines.
+- [/contact](https://intelligent-networks-lab.org/contact): Contact information, laboratory physical address, and prospective Ph.D. student admissions inquiries.
+
+## Technical Details
+- **API Runtime Config**: [/lab-config.json](https://intelligent-networks-lab.org/lab-config.json)
+- **Sitemap**: [/sitemap.xml](https://intelligent-networks-lab.org/sitemap.xml)
+- **Robots Policy**: [/robots.txt](https://intelligent-networks-lab.org/robots.txt)

@@ -1,0 +1,10 @@
+# Robots.txt for Intelligent Networks Laboratory
+User-agent: *
+Allow: /
+
+# Disallow private build artifacts or internal paths
+Disallow: /api/
+Disallow: /draft/
+
+# XML Sitemap
+Sitemap: https://intelligent-networks-lab.org/sitemap.xml

@@ -1,0 +1,7 @@
+node_modules/
+dist
+
+.env
+daisyui_llms.txt
+APPWRITE_SCHEMA_GUIDE.md
+APPWRITE_SETUP.md
