@@ -78,11 +78,10 @@
   html {
     scroll-behavior: smooth;
   }
+}
 
-  /* Slightly more breathing room on all badges/chips */
-  .badge {
-    padding-inline: 0.5rem;
-  }
+.badge{
+  padding: 0.3rem;
 }
 
 /* Minimal Academic Panel */
