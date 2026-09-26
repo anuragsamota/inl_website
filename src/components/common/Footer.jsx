@@ -1,6 +1,7 @@
 import React, { useState, useEffect, memo } from 'react';
 import { NavLink } from 'react-router-dom';
-import { MapPin, Mail, Github, BookOpen, Linkedin } from 'lucide-react';
+import { MapPin, Mail, BookOpen } from 'lucide-react';
+import { GitHubIcon, LinkedInIcon } from './SocialIcons';
 import { getLabInfo } from '../../services/api';
 
 const Footer = memo(function Footer() {
@@ -38,7 +39,6 @@ const Footer = memo(function Footer() {
       {/* Col 2: Navigation */}
       <nav>
         <h6 className="footer-title text-xs">Navigation</h6>
-        <NavLink to="/research" className="link link-hover">Research & Projects</NavLink>
         <NavLink to="/publications" className="link link-hover">Publications</NavLink>
         <NavLink to="/people" className="link link-hover">People & Directory</NavLink>
         <NavLink to="/news" className="link link-hover">News & Updates</NavLink>
@@ -86,7 +86,7 @@ const Footer = memo(function Footer() {
               className="btn btn-ghost btn-xs btn-square" 
               aria-label="GitHub"
             >
-              <Github className="w-4 h-4" />
+              <GitHubIcon className="w-4 h-4" />
             </a>
           )}
           {labInfo.socials?.linkedin && (
@@ -97,7 +97,7 @@ const Footer = memo(function Footer() {
               className="btn btn-ghost btn-xs btn-square" 
               aria-label="LinkedIn"
             >
-              <Linkedin className="w-4 h-4" />
+              <LinkedInIcon className="w-4 h-4" />
             </a>
           )}
         </div>

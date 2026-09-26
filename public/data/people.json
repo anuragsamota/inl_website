@@ -1,0 +1,108 @@
+[
+  {
+    "$id": "sidharth-sharma",
+    "name": "Dr. Sidharth Sharma",
+    "role": "Professor",
+    "category": "Supervisor",
+    "title": "Professor of Computer Science & Engineering",
+    "avatar": "/media/people/Sidharth-Sharma.jpg",
+    "bio": "I am an Assistant Professor of Computer Science and Engineering at the Indian Institute of Technology Jodhpur. I graduated with a Ph.D. in CSE from the Indian Institute of Technology Bombay in 2020, advised by Prof. Ashwin Gumaste. My Ph.D. research was focused on various modeling, experimentation, and analytical aspects of network management in next-generation software-defined networks.\n\nI am currently focused on developing network infrastructure for the efficient training and inference of deep neural networks (DNNs), including the complex requirements of large language models (LLMs). I am also working on designing self-optimized and highly-available next-generation networks.\n\nI am looking for motivated students to join my research group. Please send me your CV if you are interested in doing a PhD in my research interests.",
+    "researchInterests": [
+      "Network Systems for AI at Scale",
+      "Self-Optimizing and Resilient Networks",
+      "Network Softwarization",
+      "Network Management",
+      "Performance Modelling"
+    ],
+    "scholar": "https://scholar.google.com/citations?hl=en&user=c0R1WokAAAAJ",
+    "website": "https://home.iitj.ac.in/~sidharth/",
+    "email": "sidharth@iitj.ac.in",
+    "office": "207 , CS Building"
+  },
+  {
+    "$id": "shasank-dixit",
+    "name": "Shasank Dixit",
+    "role": "PhD Student",
+    "category": "PhD Students",
+    "avatar": "/media/people/Shasank-Dixit.png",
+    "bio": "I am a PhD student at the Intelligent Networks Lab, Indian Institute of Technology Jodhpur, under the supervision of Dr. Sidharth Sharma. My research focuses on developing efficient and scalable network systems for training and inference of deep neural networks (DNNs), including large language models (LLMs). I am particularly interested in exploring novel network architectures, protocols, and algorithms that can optimize the performance and resource utilization of distributed DNN training and inference workloads. My research also involves investigating the impact of network characteristics on the convergence and generalization of DNNs, and developing techniques to mitigate the adverse effects of network impairments on DNN performance.",
+    "researchInterests": [
+      "Network Systems for AI at Scale",
+      "Self-Optimizing and Resilient Networks",
+      "Network Softwarization",
+      "Network Management",
+      "Performance Modelling"
+    ],
+    "scholar": "https://scholar.google.com/citations?hl=en&user=1jGILnUAAAAJ",
+    "website": "https://dixitji26.github.io/Portfolio/",
+    "github": "https://github.com/dixitji26",
+    "email": "p25cs0008@iitj.ac.in"
+  },
+  {
+    "$id": "mayank-ramnani",
+    "name": "Mayank Ramnani",
+    "role": "PhD Student",
+    "category": "PhD Students",
+    "avatar": "/media/people/Mayank-Ramnani.png",
+    "bio": "I am a PhD student at the Intelligent Networks Lab, Indian Institute of Technology Jodhpur, under the supervision of Dr. Sidharth Sharma. My research focuses on developing efficient and scalable network systems for training and inference of deep neural networks (DNNs), including large language models (LLMs). I am particularly interested in exploring novel network architectures, protocols, and algorithms that can optimize the performance and resource utilization of distributed DNN training and inference workloads. My research also involves investigating the impact of network characteristics on the convergence and generalization of DNNs, and developing techniques to mitigate the adverse effects of network impairments on DNN performance.",
+    "researchInterests": [
+      "Network Systems for AI at Scale",
+      "Self-Optimizing and Resilient Networks",
+      "Network Softwarization",
+      "Network Management",
+      "Performance Modelling"
+    ],
+    "scholar": "https://scholar.google.com/citations?hl=en&user=qoZ9m4oAAAAJ",
+    "website": "https://mayankramnani.github.io/personal-webpage/",
+    "github": "https://github.com/mayankramnani",
+    "email": "mayankramnani.1802@gmail.com"
+  },
+  {
+    "$id": "nikhil-teja",
+    "name": "Nikhil Teja",
+    "role": "PhD Student",
+    "category": "PhD Students",
+    "avatar": "/media/people/Nikhil-Teja.png",
+    "bio": "I am a PhD student at the Intelligent Networks Lab, Indian Institute of Technology Jodhpur, under the supervision of Dr. Sidharth Sharma. My research focuses on developing efficient and scalable network systems for training and inference of deep neural networks (DNNs), including large language models (LLMs). I am particularly interested in exploring novel network architectures, protocols, and algorithms that can optimize the performance and resource utilization of distributed DNN training and inference workloads. My research also involves investigating the impact of network characteristics on the convergence and generalization of DNNs, and developing techniques to mitigate the adverse effects of network impairments on DNN performance.",
+    "researchInterests": [
+      "Network Systems for AI at Scale",
+      "Self-Optimizing and Resilient Networks",
+      "Network Softwarization",
+      "Network Management",
+      "Performance Modelling"
+    ],
+    "scholar": "https://scholar.google.com/citations?hl=en&user=qoZ9m4oAAAAJ",
+    "website": "https://nikhilteja.github.io/personal-webpage/",
+    "github": "https://github.com/nikhilteja",
+    "email": "nikhilteja.1802@gmail.com"
+  },
+  {
+    "$id": "abhishek-gehlot",
+    "name": "Abhishek Gehlot",
+    "role": "M.Tech. Student",
+    "category": "Master's Students",
+    "avatar": "/media/people/Abhishek-Gehlot.png",
+    "email":"m25cse002@iitj.ac.in"
+  },
+    {
+    "$id": "akash-kashyap",
+    "name": "Akash Kashyap",
+    "role": "M.Tech. Student",
+    "category": "Master's Students",
+    "email":"m25cse003@iitj.ac.in"
+  },
+    {
+    "$id": "anurag-samota",
+    "name": "Anurag Samota",
+    "role": "M.Tech. Student",
+    "category": "Master's Students",
+    "email":"m25cse007@iitj.ac.in",
+    "github":"https://github.com/anuragsamota"
+  },
+  {
+    "$id": "shubham-sharma",
+    "name": "Shubham Sharma",
+    "role": "M.Tech. Student",
+    "category": "Master's Students"
+  }
+]

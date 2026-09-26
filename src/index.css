@@ -1,10 +1,87 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+/* Font family utilities (migrated from tailwind.config.js theme.extend.fontFamily) */
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Merriweather", ui-serif, Georgia, serif;
+  --font-mono: "Fira Code", ui-monospace, monospace;
+  --font-display: "Outfit", "Inter", ui-sans-serif, sans-serif;
+}
+
+/* daisyUI plugin — enable only our two custom themes (light default + dark prefers) */
+@plugin "daisyui" {
+  themes: cambridge-green --default, cambridge-dark --prefersdark;
+}
+
+@plugin "daisyui/theme" {
+  name: "cambridge-green";
+  default: true;
+  color-scheme: light;
+
+  --color-primary: #059669;           /* Rich Cambridge Green */
+  --color-primary-content: #ffffff;
+  --color-secondary: #3b7a57;         /* Amazon Green */
+  --color-secondary-content: #ffffff;
+  --color-accent: #0f766e;            /* Teal accent */
+  --color-accent-content: #ffffff;
+  --color-neutral: #1f2937;
+  --color-neutral-content: #f9fafb;
+  --color-base-100: #ffffff;          /* Crisp White */
+  --color-base-200: #f0fdf4;          /* Very light green tint backdrop */
+  --color-base-300: #dcfce7;          /* Green-tinted borders */
+  --color-base-content: #064e3b;      /* Deep Forest Green text */
+  --color-info: #2563eb;
+  --color-info-content: #ffffff;
+  --color-success: #059669;
+  --color-success-content: #ffffff;
+  --color-warning: #d97706;
+  --color-warning-content: #ffffff;
+  --color-error: #dc2626;
+  --color-error-content: #ffffff;
+
+  --radius-selector: 0.25rem;
+  --radius-field: 0.375rem;
+  --radius-box: 0.5rem;
+}
+
+@plugin "daisyui/theme" {
+  name: "cambridge-dark";
+  color-scheme: dark;
+
+  --color-primary: #34d399;           /* Vibrant Mint Green Accent */
+  --color-primary-content: #062f21;
+  --color-secondary: #86efac;         /* Soft Mint Green */
+  --color-secondary-content: #062f21;
+  --color-accent: #2dd4bf;            /* Turquoise Glow */
+  --color-accent-content: #0f172a;
+  --color-neutral: #11221a;
+  --color-neutral-content: #ecfdf5;
+  --color-base-100: #0d2018;          /* Elegant dark forest green (not pitch black!) */
+  --color-base-200: #132c21;          /* Slightly lighter forest card surface */
+  --color-base-300: #1e3f30;          /* Forest green border tone */
+  --color-base-content: #ecfdf5;      /* Soft mint high-readability text */
+  --color-info: #60a5fa;
+  --color-info-content: #062f21;
+  --color-success: #34d399;
+  --color-success-content: #062f21;
+  --color-warning: #fbbf24;
+  --color-warning-content: #062f21;
+  --color-error: #f87171;
+  --color-error-content: #062f21;
+
+  --radius-selector: 0.25rem;
+  --radius-field: 0.375rem;
+  --radius-box: 0.5rem;
+}
 
 @layer base {
   html {
     scroll-behavior: smooth;
+  }
+
+  /* Slightly more breathing room on all badges/chips */
+  .badge {
+    padding-inline: 0.5rem;
   }
 }
 
@@ -12,7 +89,7 @@
 .academic-card {
   background-color: var(--fallback-b1, oklch(var(--b1) / 1));
   border: 1px solid var(--fallback-b3, oklch(var(--b3) / 1));
-  border-radius: var(--rounded-box, 0.75rem);
+  border-radius: var(--radius-box, 0.75rem);
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 

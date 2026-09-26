@@ -1,19 +1,16 @@
 {
   "labInfo": {
-    "name": "Intelligent Networks Laboratory",
+    "name": "Intelligent Networks Lab",
     "shortName": "Networks Lab",
     "department": "Department of Computer Science & Engineering",
     "university": "Indian Institute of Technology Jodhpur",
-    "tagline": "Research in Intelligent Wireless Networks, Programmable Data Planes, and Quantum Communication",
-    "description": "The Intelligent Networks Laboratory conducts fundamental and applied research in 6G systems, software-defined networking (SDN), network security, and quantum communications.",
+    "tagline": "Research in Intelligent Wireless Networks and Programmable Data Planes",
+    "description": "The Intelligent Networks Lab conducts fundamental and applied research in 6G systems, software-defined networking (SDN) and network security",
     "location": "Computer Science Building, Room 304",
     "address": "N.H. 62, Nagaur Road, Karwar, Jodhpur - 342030, Rajasthan",
-    "email": "contact@intelligent-networks-lab.org",
-    "phone": "+1 (555) 019-2834",
+    "email": "inl@iitj.ac.in",
     "socials": {
       "github": "https://github.com",
-      "scholar": "https://scholar.google.com",
-      "twitter": "https://twitter.com",
       "linkedin": "https://linkedin.com"
     },
     "stats": [
@@ -24,19 +21,10 @@
     ]
   },
   "filters": {
-    "researchCategories": [
-      "All",
-      "6G & Wireless",
-      "Network Security",
-      "Quantum Networks",
-      "SDN & Routing",
-      "Satellite Networks"
-    ],
     "peopleCategories": [
-      "All",
-      "Faculty",
-      "Postdocs",
+      "Supervisor",
       "PhD Students",
+      "Master's Students",
       "Alumni"
     ],
     "publicationTypes": [
@@ -52,12 +40,7 @@
     ]
   },
   "themes": [
-    { "id": "lofi-dark", "label": "Monochrome Lofi Dark", "color": "#000000" },
-    { "id": "lofi", "label": "Monochrome Lofi Light", "color": "#ffffff" },
-    { "id": "academic", "label": "Oxford Navy (Academic Light)", "color": "#0f2942" },
-    { "id": "academic-dark", "label": "Oxford Midnight (Academic Dark)", "color": "#38bdf8" },
-    { "id": "emerald", "label": "Cambridge Emerald", "color": "#059669" },
-    { "id": "nord", "label": "Nordic Slate", "color": "#5e81ac" },
-    { "id": "corporate", "label": "Corporate Clean", "color": "#2563eb" }
+    { "id": "cambridge-green", "label": "Cambridge Green", "color": "#059669" },
+    { "id": "cambridge-dark", "label": "Cambridge Dark", "color": "#10b981" }
   ]
 }

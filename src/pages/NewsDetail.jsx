@@ -4,6 +4,17 @@ import { ArrowLeft, Calendar, Share2, Check } from 'lucide-react';
 import SEO from '../components/common/SEO';
 import { getNewsById, getNews } from '../services/api';
 
+const formatDate = (dateStr) => {
+  if (!dateStr) return '';
+  try {
+    const date = new Date(dateStr);
+    if (isNaN(date.getTime())) return dateStr;
+    return date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+  } catch (e) {
+    return dateStr;
+  }
+};
+
 export default function NewsDetail() {
   const { id } = useParams();
   const navigate = useNavigate();
@@ -93,7 +104,7 @@ export default function NewsDetail() {
                 </span>
                 <span className="text-xs font-mono text-base-content/60 flex items-center gap-1">
                   <Calendar className="w-3.5 h-3.5 text-primary" />
-                  {article.date}
+                  {formatDate(article.date)}
                 </span>
               </div>
 
@@ -139,7 +150,7 @@ export default function NewsDetail() {
                   to={`/news/${item.$id}`}
                   className="card card-border bg-base-100 p-4 space-y-2 hover:border-primary transition-colors"
                 >
-                  <span className="text-xs font-mono text-primary font-medium">{item.date}</span>
+                  <span className="text-xs font-mono text-primary font-medium">{formatDate(item.date)}</span>
                   <h4 className="font-bold text-xs text-base-content line-clamp-2">{item.title}</h4>
                 </NavLink>
               ))}

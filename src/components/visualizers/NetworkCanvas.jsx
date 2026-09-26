@@ -1,55 +1,20 @@
 import React, { useRef, useEffect, memo } from 'react';
 
-// Color profiles for DaisyUI academic themes
+// Color profiles for DaisyUI Cambridge Green themes
 const THEME_PALETTES = {
-  'lofi-dark': {
-    nodes: ['#ffffff', '#e5e5e5', '#a3a3a3', '#737373'],
-    lines: 'rgba(255, 255, 255, 0.45)',
-    mouseLine: 'rgba(255, 255, 255, 0.65)',
-    packet: '#ffffff',
-    glow: 'rgba(255, 255, 255, 0.15)',
-  },
-  lofi: {
-    nodes: ['#000000', '#1f2937', '#374151', '#4b5563'],
-    lines: 'rgba(0, 0, 0, 0.35)',
-    mouseLine: 'rgba(0, 0, 0, 0.55)',
-    packet: '#000000',
-    glow: 'rgba(0, 0, 0, 0.12)',
-  },
-  academic: {
-    nodes: ['#0f2942', '#1d4ed8', '#0f766e', '#991b1b'],
-    lines: 'rgba(15, 41, 66, 0.35)',
-    mouseLine: 'rgba(29, 78, 216, 0.55)',
-    packet: '#1d4ed8',
-    glow: 'rgba(15, 41, 66, 0.12)',
-  },
-  'academic-dark': {
-    nodes: ['#38bdf8', '#818cf8', '#34d399', '#f43f5e'],
-    lines: 'rgba(56, 189, 248, 0.45)',
-    mouseLine: 'rgba(56, 189, 248, 0.65)',
-    packet: '#38bdf8',
-    glow: 'rgba(56, 189, 248, 0.15)',
-  },
-  emerald: {
-    nodes: ['#065f46', '#059669', '#0d9488', '#1e293b'],
+  'cambridge-green': {
+    nodes: ['#059669', '#10b981', '#0f766e', '#047857'],
     lines: 'rgba(5, 150, 105, 0.35)',
-    mouseLine: 'rgba(6, 95, 70, 0.55)',
+    mouseLine: 'rgba(5, 150, 105, 0.55)',
     packet: '#059669',
     glow: 'rgba(5, 150, 105, 0.12)',
   },
-  nord: {
-    nodes: ['#2e3440', '#4c566a', '#5e81ac', '#88c0d0'],
-    lines: 'rgba(94, 129, 172, 0.45)',
-    mouseLine: 'rgba(46, 52, 64, 0.65)',
-    packet: '#5e81ac',
-    glow: 'rgba(94, 129, 172, 0.15)',
-  },
-  corporate: {
-    nodes: ['#1e40af', '#2563eb', '#0284c7', '#334155'],
-    lines: 'rgba(37, 99, 235, 0.35)',
-    mouseLine: 'rgba(30, 64, 175, 0.55)',
-    packet: '#2563eb',
-    glow: 'rgba(37, 99, 235, 0.12)',
+  'cambridge-dark': {
+    nodes: ['#34d399', '#a7f3d0', '#2dd4bf', '#10b981'],
+    lines: 'rgba(52, 211, 153, 0.4)',
+    mouseLine: 'rgba(52, 211, 153, 0.6)',
+    packet: '#34d399',
+    glow: 'rgba(52, 211, 153, 0.15)',
   }
 };
 
@@ -66,8 +31,8 @@ const NetworkCanvas = memo(function NetworkCanvas() {
     let height = (canvas.height = canvas.offsetHeight);
 
     const getActivePalette = () => {
-      const currentTheme = document.documentElement.getAttribute('data-theme') || 'lofi-dark';
-      return THEME_PALETTES[currentTheme] || THEME_PALETTES['lofi-dark'];
+      const currentTheme = document.documentElement.getAttribute('data-theme') || 'cambridge-green';
+      return THEME_PALETTES[currentTheme] || THEME_PALETTES['cambridge-green'];
     };
 
     let palette = getActivePalette();

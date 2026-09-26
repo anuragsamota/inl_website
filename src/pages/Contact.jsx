@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Mail, MapPin, Phone, Send, CheckCircle2, Building } from 'lucide-react';
+import { Mail, MapPin, Phone, Send, CircleCheckBig, Building } from 'lucide-react';
 import SEO from '../components/common/SEO';
 import { getLabInfo, submitContactForm } from '../services/api';
 
@@ -96,14 +96,6 @@ export default function Contact() {
                     </a>
                   </div>
                 </div>
-
-                <div className="flex items-center gap-3 text-base-content/80">
-                  <Phone className="w-4 h-4 text-primary shrink-0" />
-                  <div>
-                    <span className="text-base-content/60 font-mono block">Phone</span>
-                    <span>{labInfo.phone}</span>
-                  </div>
-                </div>
               </div>
             )}
 
@@ -120,7 +112,7 @@ export default function Contact() {
 
             {submitted && (
               <div role="alert" className="alert alert-success alert-soft text-xs">
-                <CheckCircle2 className="w-4 h-4" />
+                <CircleCheckBig className="w-4 h-4" />
                 <span>Message received. We will respond promptly.</span>
               </div>
             )}

@@ -4,9 +4,21 @@ import { Newspaper, Calendar, ArrowUpRight } from 'lucide-react';
 import SEO from '../components/common/SEO';
 import { getNews } from '../services/api';
 
+const formatDate = (dateStr) => {
+  if (!dateStr) return '';
+  try {
+    const date = new Date(dateStr);
+    if (isNaN(date.getTime())) return dateStr;
+    return date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+  } catch (e) {
+    return dateStr;
+  }
+};
+
 export default function News() {
   const [newsList, setNewsList] = useState([]);
   const [searchQuery, setSearchQuery] = useState('');
+  const [localQuery, setLocalQuery] = useState('');
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -25,6 +37,14 @@ export default function News() {
     fetchNewsData();
     return () => { isMounted = false; };
   }, []);
+
+  // Debounced search logic
+  useEffect(() => {
+    const handler = setTimeout(() => {
+      setSearchQuery(localQuery);
+    }, 220);
+    return () => clearTimeout(handler);
+  }, [localQuery]);
 
   const filteredNews = newsList.filter(item => {
     if (!searchQuery.trim()) return true;
@@ -62,8 +82,8 @@ export default function News() {
             <input
               type="text"
               placeholder="Search announcements..."
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
+              value={localQuery}
+              onChange={(e) => setLocalQuery(e.target.value)}
               className="input input-sm input-bordered w-full text-xs"
             />
           </div>
@@ -78,7 +98,7 @@ export default function News() {
           <div className="text-center py-12 bg-base-100 border border-base-200 rounded-lg space-y-2">
             <p className="text-xs text-base-content/70">No announcements found matching search query.</p>
             <button 
-              onClick={() => setSearchQuery('')}
+              onClick={() => setLocalQuery('')}
               className="btn btn-xs btn-outline"
             >
               Clear Search
@@ -91,7 +111,7 @@ export default function News() {
                 <div className="flex items-center justify-between text-xs font-mono text-base-content/60">
                   <span className="flex items-center gap-1.5 font-semibold text-primary">
                     <Calendar className="w-3.5 h-3.5" />
-                    {item.date}
+                    {formatDate(item.date)}
                   </span>
                 </div>
 

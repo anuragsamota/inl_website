@@ -6,8 +6,11 @@ import { getPeople, getRuntimeFilters } from '../services/api';
 
 export default function People() {
   const [people, setPeople] = useState([]);
-  const [categories, setCategories] = useState(['All', 'Faculty', 'Postdocs', 'PhD Students', 'Alumni']);
-  const [activeCategory, setActiveCategory] = useState('All');
+  const [categories, setCategories] = useState(['Supervisor', 'PhD Students', "Master's Students", 'Alumni']);
+  const [activeCategory, setActiveCategory] = useState(() => {
+    // Persist active tab filter state to prevent reload reset on profile navigation
+    return sessionStorage.getItem('inl_active_people_category') || 'Supervisor';
+  });
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -37,6 +40,11 @@ export default function People() {
     return () => { isMounted = false; };
   }, [activeCategory]);
 
+  const handleCategoryChange = (cat) => {
+    setActiveCategory(cat);
+    sessionStorage.setItem('inl_active_people_category', cat);
+  };
+
   return (
     <>
       <SEO 
@@ -53,10 +61,10 @@ export default function People() {
             <span>Lab Members</span>
           </div>
           <h1 className="text-3xl font-extrabold font-display text-base-content">
-            People & Directory
+            Research Team & Members
           </h1>
           <p className="text-xs text-base-content/70 max-w-2xl">
-            Faculty, postdoctoral scholars, doctoral candidates, and distinguished alumni driving research.
+            Meet the faculty directors, graduate scholars, and distinguished alumni driving our core research.
           </p>
         </div>
 
@@ -65,7 +73,7 @@ export default function People() {
           {categories.map((cat) => (
             <button
               key={cat}
-              onClick={() => setActiveCategory(cat)}
+              onClick={() => handleCategoryChange(cat)}
               className={`btn btn-xs ${activeCategory === cat ? 'btn-primary' : 'btn-ghost'}`}
             >
               {cat}
@@ -79,6 +87,10 @@ export default function People() {
             {[1, 2, 3, 4, 5].map((n) => (
               <div key={n} className="h-56 rounded-lg bg-base-200 animate-pulse" />
             ))}
+          </div>
+        ) : people.length === 0 ? (
+          <div className="text-center py-12 bg-base-100 border border-base-200 rounded-lg space-y-2">
+            <p className="text-xs text-base-content/70">No {activeCategory.toLowerCase()} listed in this category yet.</p>
           </div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">

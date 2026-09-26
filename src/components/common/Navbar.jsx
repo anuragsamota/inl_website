@@ -1,4 +1,4 @@
-import React, { useState, useEffect, memo } from 'react';
+import React, { useState, useEffect, useRef, memo } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 import { 
   Network, 
@@ -9,14 +9,13 @@ import {
   Mail, 
   Menu, 
   X, 
-  Palette,
-  Check
+  Sun,
+  Moon,
+  Monitor
 } from 'lucide-react';
-import { getRuntimeThemes } from '../../services/api';
 
 const NAV_LINKS = [
   { path: '/', label: 'Home', icon: Network },
-  { path: '/research', label: 'Research', icon: Cpu },
   { path: '/publications', label: 'Publications', icon: BookOpen },
   { path: '/people', label: 'People', icon: Users },
   { path: '/news', label: 'News', icon: Newspaper },
@@ -24,38 +23,104 @@ const NAV_LINKS = [
 ];
 
 const Navbar = memo(function Navbar() {
-  const [currentTheme, setCurrentTheme] = useState(() => {
-    return localStorage.getItem('inl_theme') || 'lofi-dark';
+  const [themeMode, setThemeMode] = useState(() => {
+    return localStorage.getItem('inl_theme_mode') || 'system';
   });
-  const [themes, setThemes] = useState([]);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const drawerRef = useRef(null);
   const location = useLocation();
 
   useEffect(() => {
-    let isMounted = true;
-    async function loadThemes() {
-      const themeList = await getRuntimeThemes();
-      if (isMounted) setThemes(themeList);
-    }
-    loadThemes();
-    return () => { isMounted = false; };
-  }, []);
+    localStorage.setItem('inl_theme_mode', themeMode);
+    
+    const applyTheme = () => {
+      if (themeMode === 'system') {
+        const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        document.documentElement.setAttribute('data-theme', systemPrefersDark ? 'cambridge-dark' : 'cambridge-green');
+      } else if (themeMode === 'dark') {
+        document.documentElement.setAttribute('data-theme', 'cambridge-dark');
+      } else {
+        document.documentElement.setAttribute('data-theme', 'cambridge-green');
+      }
+    };
 
-  useEffect(() => {
-    document.documentElement.setAttribute('data-theme', currentTheme);
-    localStorage.setItem('inl_theme', currentTheme);
-  }, [currentTheme]);
+    applyTheme();
+
+    if (themeMode === 'system') {
+      const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+      const handleSystemThemeChange = () => {
+        applyTheme();
+      };
+      
+      if (mediaQuery.addEventListener) {
+        mediaQuery.addEventListener('change', handleSystemThemeChange);
+      } else {
+        mediaQuery.addListener(handleSystemThemeChange);
+      }
+      
+      return () => {
+        if (mediaQuery.removeEventListener) {
+          mediaQuery.removeEventListener('change', handleSystemThemeChange);
+        } else {
+          mediaQuery.removeListener(handleSystemThemeChange);
+        }
+      };
+    }
+  }, [themeMode]);
 
   useEffect(() => {
     setMobileMenuOpen(false);
   }, [location.pathname]);
 
+  // Focus trap + body scroll lock while the mobile drawer is open
+  useEffect(() => {
+    if (!mobileMenuOpen) return;
+
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+
+    const drawer = drawerRef.current;
+    const focusableSelectors = 'a[href], button:not([disabled]), input, [tabindex]:not([tabindex="-1"])';
+
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') {
+        setMobileMenuOpen(false);
+        return;
+      }
+      if (e.key !== 'Tab' || !drawer) return;
+
+      const focusables = Array.from(drawer.querySelectorAll(focusableSelectors));
+      if (focusables.length === 0) return;
+
+      const first = focusables[0];
+      const last = focusables[focusables.length - 1];
+
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
+    };
+
+    document.addEventListener('keydown', handleKeyDown);
+    // Move focus into the drawer so keyboard users land on the menu
+    const firstTabbable = drawer?.querySelector(focusableSelectors);
+    firstTabbable?.focus();
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      document.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [mobileMenuOpen]);
+
   return (
-    <nav className="navbar bg-base-100/70 backdrop-blur-md border-b border-base-300/40 sticky top-0 z-50 px-4 sm:px-8 transition-colors duration-300 min-h-[64px]">
+    <nav className="navbar bg-base-100/70 backdrop-blur-md border-b border-base-300/40 sticky top-0 z-50 px-4 sm:px-8 transition-colors duration-300 min-h-16">
       
       {/* Brand Logo */}
       <div className="navbar-start">
-        <NavLink to="/" className="flex items-center gap-3 group min-h-[44px]" aria-label="Home">
+        <NavLink to="/" className="flex items-center gap-3 group min-h-11" aria-label="Home">
           <div className="w-8 h-8 rounded bg-primary/10 border border-primary/20 flex items-center justify-center p-1.5 text-primary shrink-0 transition-transform group-hover:scale-105">
             <img src="/logo-icon.svg" alt="Logo" width={24} height={24} className="w-full h-full" />
           </div>
@@ -77,7 +142,7 @@ const Navbar = memo(function Navbar() {
               <li key={link.path}>
                 <NavLink
                   to={link.path}
-                  className={`text-xs font-medium rounded-md px-3 py-2 transition-all min-h-[36px] flex items-center ${
+                  className={`text-xs font-medium rounded-md px-3 py-2 transition-all min-h-9 flex items-center ${
                     isActive 
                       ? 'active font-semibold' 
                       : 'text-base-content/80 hover:bg-base-200/50'
@@ -97,45 +162,55 @@ const Navbar = memo(function Navbar() {
         <div className="dropdown dropdown-end">
           <label 
             tabIndex={0} 
-            className="btn btn-ghost btn-xs sm:btn-sm gap-1.5 font-mono text-[11px] border border-base-300/60 bg-base-100/40 backdrop-blur-sm cursor-pointer min-h-[36px] px-3"
-            title="Select Theme"
+            className="btn btn-ghost btn-xs sm:btn-sm gap-1.5 font-mono text-[11px] border border-base-300/60 bg-base-100/40 backdrop-blur-sm cursor-pointer min-h-9 px-3 flex items-center justify-center"
+            title="Theme settings"
           >
-            <Palette className="w-3.5 h-3.5 text-primary" />
-            <span className="hidden sm:inline">Theme</span>
+            {themeMode === 'system' && <Monitor className="w-3.5 h-3.5 text-primary" />}
+            {themeMode === 'light' && <Sun className="w-3.5 h-3.5 text-primary" />}
+            {themeMode === 'dark' && <Moon className="w-3.5 h-3.5 text-primary" />}
+            <span className="hidden sm:inline capitalize">{themeMode}</span>
           </label>
           <ul 
             tabIndex={0} 
-            className="dropdown-content z-[60] menu p-2 shadow-2xl bg-base-100 border border-base-300 rounded-lg w-64 mt-2 text-xs"
+            className="dropdown-content z-60 menu p-2 shadow-2xl bg-base-100 border border-base-300 rounded-lg w-40 mt-2 text-xs"
           >
             <li className="menu-title text-[10px] font-mono uppercase text-base-content/50 px-2 py-1">
-              Select Theme Style
+              Select Mode
             </li>
-            {themes.map((theme) => (
-              <li key={theme.id}>
-                <button
-                  onClick={() => setCurrentTheme(theme.id)}
-                  className={`flex items-center justify-between py-2 rounded-md ${
-                    currentTheme === theme.id ? 'active font-semibold' : ''
-                  }`}
-                >
-                  <div className="flex items-center gap-2">
-                    <span 
-                      className="w-3.5 h-3.5 rounded-full border border-base-300" 
-                      style={{ backgroundColor: theme.color }}
-                    />
-                    <span>{theme.label}</span>
-                  </div>
-                  {currentTheme === theme.id && <Check className="w-3.5 h-3.5" />}
-                </button>
-              </li>
-            ))}
+            <li>
+              <button 
+                onClick={() => setThemeMode('light')} 
+                className={`flex items-center gap-2 rounded-md py-2 ${themeMode === 'light' ? 'active' : ''}`}
+              >
+                <Sun className="w-3.5 h-3.5" />
+                <span>Light</span>
+              </button>
+            </li>
+            <li>
+              <button 
+                onClick={() => setThemeMode('dark')} 
+                className={`flex items-center gap-2 rounded-md py-2 ${themeMode === 'dark' ? 'active' : ''}`}
+              >
+                <Moon className="w-3.5 h-3.5" />
+                <span>Dark</span>
+              </button>
+            </li>
+            <li>
+              <button 
+                onClick={() => setThemeMode('system')} 
+                className={`flex items-center gap-2 rounded-md py-2 ${themeMode === 'system' ? 'active' : ''}`}
+              >
+                <Monitor className="w-3.5 h-3.5" />
+                <span>System</span>
+              </button>
+            </li>
           </ul>
         </div>
 
         {/* Mobile Menu Toggle (44px touch target) */}
         <button
           onClick={() => setMobileMenuOpen(prev => !prev)}
-          className="btn btn-ghost btn-sm btn-square lg:hidden min-h-[44px] min-w-[44px]"
+          className="btn btn-ghost btn-sm btn-square lg:hidden min-h-11 min-w-11"
           aria-label="Toggle Navigation Menu"
         >
           {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -144,7 +219,7 @@ const Navbar = memo(function Navbar() {
 
       {/* Mobile Drawer Menu */}
       {mobileMenuOpen && (
-        <div className="absolute top-full left-0 right-0 bg-base-100/95 backdrop-blur-lg border-b border-base-300/60 p-4 lg:hidden shadow-xl animate-in fade-in">
+        <div ref={drawerRef} className="absolute top-full left-0 right-0 bg-base-100/95 backdrop-blur-lg border-b border-base-300/60 p-4 lg:hidden shadow-xl animate-in fade-in">
           <ul className="menu w-full gap-2">
             {NAV_LINKS.map((link) => {
               const Icon = link.icon;
@@ -153,7 +228,7 @@ const Navbar = memo(function Navbar() {
                 <li key={link.path}>
                   <NavLink
                     to={link.path}
-                    className={`text-sm font-medium py-3 px-4 rounded-lg min-h-[44px] flex items-center ${isActive ? 'active font-bold' : ''}`}
+                    className={`text-sm font-medium py-3 px-4 rounded-lg min-h-11 flex items-center ${isActive ? 'active font-bold' : ''}`}
                   >
                     <Icon className="w-4 h-4 mr-2 text-primary" />
                     <span>{link.label}</span>

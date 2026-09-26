@@ -9,6 +9,7 @@ export default function Publications() {
   const [types, setTypes] = useState(['All', 'Conference', 'Journal']);
   const [years, setYears] = useState(['All', '2025', '2024', '2023']);
   const [searchQuery, setSearchQuery] = useState('');
+  const [localQuery, setLocalQuery] = useState('');
   const [selectedType, setSelectedType] = useState('All');
   const [selectedYear, setSelectedYear] = useState('All');
   const [loading, setLoading] = useState(true);
@@ -25,6 +26,14 @@ export default function Publications() {
     loadFilters();
     return () => { isMounted = false; };
   }, []);
+
+  // Debounced search logic to prevent execution on every keystroke
+  useEffect(() => {
+    const handler = setTimeout(() => {
+      setSearchQuery(localQuery);
+    }, 220);
+    return () => clearTimeout(handler);
+  }, [localQuery]);
 
   useEffect(() => {
     let isMounted = true;
@@ -73,8 +82,8 @@ export default function Publications() {
             <input
               type="text"
               placeholder="Search by title, author, or venue..."
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
+              value={localQuery}
+              onChange={(e) => setLocalQuery(e.target.value)}
               className="input input-sm input-bordered w-full text-xs"
             />
           </div>
@@ -108,7 +117,7 @@ export default function Publications() {
           <div className="text-center py-12 bg-base-100 border border-base-200 rounded-lg space-y-2">
             <p className="text-xs text-base-content/70">No publications found matching criteria.</p>
             <button 
-              onClick={() => { setSearchQuery(''); setSelectedType('All'); setSelectedYear('All'); }}
+              onClick={() => { setLocalQuery(''); setSelectedType('All'); setSelectedYear('All'); }}
               className="btn btn-xs btn-outline"
             >
               Clear Filters

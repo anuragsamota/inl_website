@@ -1,0 +1,25 @@
+[
+  {
+    "$id": "pub-1",
+    "title": "O-RAN Elasticity: Deep Reinforcement Learning for Millisecond Slicing in 6G Networks",
+    "authors": ["Alex Vance"],
+    "venue": "IEEE INFOCOM 2025",
+    "year": 2025,
+    "type": "Conference",
+    "doi": "10.1109/INFOCOM.2025.10923",
+    "pdfUrl": "https://arxiv.org",
+    "bibtex": "@inproceedings{vance2025oran,\n  title={O-RAN Elasticity: Deep Reinforcement Learning for Millisecond Slicing in 6G Networks},\n  author={Vance, Alex and Rostova, Elena},\n  booktitle={IEEE INFOCOM 2025},\n  year={2025}\n}",
+    "abstract": "Open Radio Access Network (O-RAN) architectures require real-time dynamic slicing to meet stringent Quality of Service (QoS) guarantees for mission-critical 6G applications.",
+    "tags": ["6G", "O-RAN", "Deep RL"],
+    "featured": true
+  },
+  {
+    "$id": "pub-2",
+    "title": "Kernel-Level Sub-Microsecond Network Threat Isolation",
+    "authors": ["Alex Vance"],
+    "venue": "USENIX Security Symposium 2024",
+    "year": 2024,
+    "type": "Conference",
+    "featured": true
+  }
+]
