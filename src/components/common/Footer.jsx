@@ -20,11 +20,11 @@ const Footer = memo(function Footer() {
   if (!labInfo) return null;
 
   return (
-    <footer className="footer p-10 bg-base-200 text-base-content border-t border-base-300 mt-20 text-xs">
+    <footer className="footer p-10 bg-base-200 h-full text-base-content border-t border-base-300 mt-20 text-xsgrid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-4 grid">
       
       {/* Col 1: Lab info */}
       <aside className="space-y-2 max-w-sm">
-        <div className="flex w-48 h-48 items-center gap-2 font-display font-bold text-base text-base-content">
+        <div className="flex w-48 h-48 items-center gap-2 font-display font-bold text-base text-base-content max-w-sm">
           <svg class="fill-primary" version="1.0" xmlns="http://www.w3.org/2000/svg"
               width="860.000000pt" height="860.000000pt" viewBox="0 0 860.000000 860.000000"
               preserveAspectRatio="xMidYMid meet">
