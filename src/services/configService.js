@@ -24,8 +24,8 @@ export const fetchRuntimeConfig = async () => {
       publicationYears: ["All"]
     },
     themes: [
-      { id: "cambridge-green", label: "Cambridge Green", color: "#059669" },
-      { id: "cambridge-dark", label: "Cambridge Dark", color: "#10b981" }
+      { id: "imc-blue", label: "IMC Blue", color: "#1d4ed8" },
+      { id: "imc-dark", label: "IMC Dark", color: "#0b1220" }
     ]
   };
   return cachedConfig;

@@ -75,31 +75,25 @@ export default function Home() {
       <div className="space-y-12 sm:space-y-16">
 
         {/* HERO SECTION */}
-        <section className="relative w-full py-16 sm:py-24 border-b border-base-200 overflow-hidden flex items-center justify-center bg-base-100 min-h-120">
+        <section className="relative w-full py-20 sm:py-28 overflow-hidden flex items-center justify-center bg-primary min-h-120">
           <NetworkCanvas />
 
           <div className="relative z-10 max-w-3xl w-full mx-auto px-4 text-center space-y-6">
 
-
-
-            <h1 className="text-3xl sm:text-5xl font-extrabold font-display text-base-content leading-tight tracking-tight">
-              Intelligent <span className="text-primary">Networks</span> Lab
+            <h1 className="text-3xl sm:text-5xl font-extrabold font-display text-white leading-tight tracking-tight">
+              Intelligent <span className="text-accent">Networks</span> Lab
             </h1>
 
             {labInfo ? (
-              <p className="text-sm sm:text-base text-base-content/80 max-w-2xl mx-auto leading-relaxed min-h-18">
+              <p className="text-sm sm:text-base text-white/85 max-w-2xl mx-auto leading-relaxed min-h-18">
                 {labInfo.description}
               </p>
             ) : (
-              <div className="h-18 max-w-2xl mx-auto bg-base-200/50 animate-pulse rounded-lg border border-base-300/40" />
+              <div className="h-18 max-w-2xl mx-auto bg-white/10 animate-pulse rounded-lg border border-white/20" />
             )}
 
             <div className="flex flex-wrap justify-center gap-3 pt-2">
-              {/* <NavLink to="/research" className="btn btn-primary btn-md gap-2 min-h-[44px] px-6">
-                <span>Research Projects</span>
-              </NavLink> */}
-
-              <NavLink to="/publications" className="btn btn-outline btn-md gap-2 min-h-11 px-6">
+              <NavLink to="/publications" className="btn btn-accent btn-md gap-2 min-h-11 px-6 font-semibold">
                 <BookOpen className="w-4 h-4" />
                 <span>Publications</span>
                 <ArrowRight className="w-4 h-4" />

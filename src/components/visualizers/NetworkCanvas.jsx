@@ -1,20 +1,20 @@
 import React, { useRef, useEffect, memo } from 'react';
 
-// Color profiles for DaisyUI Cambridge Green themes
+// Color profiles for DaisyUI IMC Blue themes
 const THEME_PALETTES = {
-  'cambridge-green': {
-    nodes: ['#059669', '#10b981', '#0f766e', '#047857'],
-    lines: 'rgba(5, 150, 105, 0.35)',
-    mouseLine: 'rgba(5, 150, 105, 0.55)',
-    packet: '#059669',
-    glow: 'rgba(5, 150, 105, 0.12)',
+  'imc-blue': {
+    nodes: ['#1d4ed8', '#3b82f6', '#1e3a8a', '#f97316'],
+    lines: 'rgba(29, 78, 216, 0.35)',
+    mouseLine: 'rgba(29, 78, 216, 0.55)',
+    packet: '#1d4ed8',
+    glow: 'rgba(29, 78, 216, 0.12)',
   },
-  'cambridge-dark': {
-    nodes: ['#34d399', '#a7f3d0', '#2dd4bf', '#10b981'],
-    lines: 'rgba(52, 211, 153, 0.4)',
-    mouseLine: 'rgba(52, 211, 153, 0.6)',
-    packet: '#34d399',
-    glow: 'rgba(52, 211, 153, 0.15)',
+  'imc-dark': {
+    nodes: ['#3b82f6', '#93c5fd', '#60a5fa', '#fb923c'],
+    lines: 'rgba(59, 130, 246, 0.4)',
+    mouseLine: 'rgba(59, 130, 246, 0.6)',
+    packet: '#3b82f6',
+    glow: 'rgba(59, 130, 246, 0.15)',
   }
 };
 
@@ -31,8 +31,8 @@ const NetworkCanvas = memo(function NetworkCanvas() {
     let height = (canvas.height = canvas.offsetHeight);
 
     const getActivePalette = () => {
-      const currentTheme = document.documentElement.getAttribute('data-theme') || 'cambridge-green';
-      return THEME_PALETTES[currentTheme] || THEME_PALETTES['cambridge-green'];
+      const currentTheme = document.documentElement.getAttribute('data-theme') || 'imc-blue';
+      return THEME_PALETTES[currentTheme] || THEME_PALETTES['imc-blue'];
     };
 
     let palette = getActivePalette();

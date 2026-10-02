@@ -10,31 +10,31 @@
 
 /* daisyUI plugin — enable only our two custom themes (light default + dark prefers) */
 @plugin "daisyui" {
-  themes: cambridge-green --default, cambridge-dark --prefersdark;
+  themes: imc-blue --default, imc-dark --prefersdark;
 }
 
 @plugin "daisyui/theme" {
-  name: "cambridge-green";
+  name: "imc-blue";
   default: true;
   color-scheme: light;
 
-  --color-primary: #059669;           /* Rich Cambridge Green */
+  --color-primary: #1d4ed8;           /* Rich Royal Blue (hero / brand) */
   --color-primary-content: #ffffff;
-  --color-secondary: #3b7a57;         /* Amazon Green */
+  --color-secondary: #1e3a8a;         /* Deep Indigo Blue */
   --color-secondary-content: #ffffff;
-  --color-accent: #0f766e;            /* Teal accent */
+  --color-accent: #f97316;            /* Vibrant Orange (CTAs) */
   --color-accent-content: #ffffff;
-  --color-neutral: #1f2937;
-  --color-neutral-content: #f9fafb;
+  --color-neutral: #1e293b;
+  --color-neutral-content: #f8fafc;
   --color-base-100: #ffffff;          /* Crisp White */
-  --color-base-200: #f0fdf4;          /* Very light green tint backdrop */
-  --color-base-300: #dcfce7;          /* Green-tinted borders */
-  --color-base-content: #064e3b;      /* Deep Forest Green text */
+  --color-base-200: #eff6ff;          /* Very light blue tint backdrop */
+  --color-base-300: #dbeafe;          /* Blue-tinted borders */
+  --color-base-content: #0f172a;      /* Deep Slate text */
   --color-info: #2563eb;
   --color-info-content: #ffffff;
-  --color-success: #059669;
+  --color-success: #16a34a;
   --color-success-content: #ffffff;
-  --color-warning: #d97706;
+  --color-warning: #f59e0b;
   --color-warning-content: #ffffff;
   --color-error: #dc2626;
   --color-error-content: #ffffff;
@@ -45,29 +45,29 @@
 }
 
 @plugin "daisyui/theme" {
-  name: "cambridge-dark";
+  name: "imc-dark";
   color-scheme: dark;
 
-  --color-primary: #34d399;           /* Vibrant Mint Green Accent */
-  --color-primary-content: #062f21;
-  --color-secondary: #86efac;         /* Soft Mint Green */
-  --color-secondary-content: #062f21;
-  --color-accent: #2dd4bf;            /* Turquoise Glow */
-  --color-accent-content: #0f172a;
-  --color-neutral: #11221a;
-  --color-neutral-content: #ecfdf5;
-  --color-base-100: #0d2018;          /* Elegant dark forest green (not pitch black!) */
-  --color-base-200: #132c21;          /* Slightly lighter forest card surface */
-  --color-base-300: #1e3f30;          /* Forest green border tone */
-  --color-base-content: #ecfdf5;      /* Soft mint high-readability text */
+  --color-primary: #3b82f6;           /* Bright Blue on Dark */
+  --color-primary-content: #0b1220;
+  --color-secondary: #60a5fa;         /* Soft Sky Blue */
+  --color-secondary-content: #0b1220;
+  --color-accent: #fb923c;            /* Bright Orange on Dark */
+  --color-accent-content: #0b1220;
+  --color-neutral: #0f172a;
+  --color-neutral-content: #f1f5f9;
+  --color-base-100: #0b1220;          /* Deep Navy (not pitch black!) */
+  --color-base-200: #111c33;          /* Slightly lighter navy card surface */
+  --color-base-300: #1e293b;          /* Slate border tone */
+  --color-base-content: #e2e8f0;      /* Soft slate high-readability text */
   --color-info: #60a5fa;
-  --color-info-content: #062f21;
-  --color-success: #34d399;
-  --color-success-content: #062f21;
+  --color-info-content: #0b1220;
+  --color-success: #4ade80;
+  --color-success-content: #0b1220;
   --color-warning: #fbbf24;
-  --color-warning-content: #062f21;
+  --color-warning-content: #0b1220;
   --color-error: #f87171;
-  --color-error-content: #062f21;
+  --color-error-content: #0b1220;
 
   --radius-selector: 0.25rem;
   --radius-field: 0.375rem;
