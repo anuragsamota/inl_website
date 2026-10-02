@@ -144,10 +144,10 @@ export default function Home() {
           <div className="flex items-center justify-between border-b border-base-200 pb-3">
             <h2 className="text-xl sm:text-2xl font-bold text-base-content font-display flex items-center gap-2">
               <Newspaper className="w-5 h-5 text-primary" />
-              <span>News & Announcements</span>
+              <span>News</span>
             </h2>
             <NavLink to="/news" className="btn btn-sm btn-ghost text-xs gap-1 text-primary">
-              <span>All Announcements</span>
+              <span>All News</span>
               <ChevronRight className="w-4 h-4" />
             </NavLink>
           </div>
@@ -161,7 +161,7 @@ export default function Home() {
             </div>
           ) : news.length === 0 ? (
             <div className="text-center py-12 bg-base-100 border border-base-300 rounded-xl space-y-2">
-              <p className="text-xs text-base-content/60">No recent announcements posted.</p>
+              <p className="text-xs text-base-content/60">No recent news posted.</p>
             </div>
           ) : (
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">

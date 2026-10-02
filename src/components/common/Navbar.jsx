@@ -1,14 +1,14 @@
 import React, { useState, useEffect, useRef, memo } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
-import { 
-  Network, 
-  BookOpen, 
-  Users, 
-  Cpu, 
-  Newspaper, 
-  Mail, 
-  Menu, 
-  X, 
+import {
+  Network,
+  BookOpen,
+  Users,
+  Cpu,
+  Newspaper,
+  Mail,
+  Menu,
+  X,
   Sun,
   Moon,
   Monitor
@@ -32,7 +32,7 @@ const Navbar = memo(function Navbar() {
 
   useEffect(() => {
     localStorage.setItem('inl_theme_mode', themeMode);
-    
+
     const applyTheme = () => {
       if (themeMode === 'system') {
         const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
@@ -51,13 +51,13 @@ const Navbar = memo(function Navbar() {
       const handleSystemThemeChange = () => {
         applyTheme();
       };
-      
+
       if (mediaQuery.addEventListener) {
         mediaQuery.addEventListener('change', handleSystemThemeChange);
       } else {
         mediaQuery.addListener(handleSystemThemeChange);
       }
-      
+
       return () => {
         if (mediaQuery.removeEventListener) {
           mediaQuery.removeEventListener('change', handleSystemThemeChange);
@@ -117,12 +117,54 @@ const Navbar = memo(function Navbar() {
 
   return (
     <nav className="navbar bg-base-100/70 backdrop-blur-md border-b border-base-300/40 sticky top-0 z-50 px-4 sm:px-8 transition-colors duration-300 min-h-16">
-      
+
       {/* Brand Logo */}
       <div className="navbar-start">
         <NavLink to="/" className="flex items-center gap-3 group min-h-11" aria-label="Home">
-          <div className="w-8 h-8 rounded bg-primary/10 border border-primary/20 flex items-center justify-center p-1.5 text-primary shrink-0 transition-transform group-hover:scale-105">
-            <img src="/logo-icon.svg" alt="Logo" width={24} height={24} className="w-full h-full" />
+          <div className="w-12 h-12 flex items-center justify-center text-primary shrink-0 transition-transform group-hover:scale-105">
+            <svg class="fill-primary" version="1.0" xmlns="http://www.w3.org/2000/svg"
+              width="860.000000pt" height="860.000000pt" viewBox="0 0 860.000000 860.000000"
+              preserveAspectRatio="xMidYMid meet">
+
+              <g transform="translate(0.000000,860.000000) scale(0.100000,-0.100000)"
+                stroke="none">
+                <path d="M4200 8343 c-82 -6 -210 -34 -283 -60 -406 -145 -718 -522 -753 -907
+-4 -50 -12 -80 -23 -90 -9 -8 -74 -40 -146 -71 -444 -193 -786 -475 -1086
+-896 -201 -281 -382 -641 -463 -922 -42 -145 -59 -261 -60 -412 -1 -121 2
+-145 19 -180 38 -77 100 -55 152 54 40 87 157 292 238 420 285 450 731 911
+1158 1199 128 86 318 182 361 182 23 0 41 -13 90 -67 207 -232 383 -349 615
+-410 81 -22 119 -26 246 -27 167 -1 243 10 375 57 165 57 296 141 418 266 387
+398 429 1023 98 1461 -137 182 -345 313 -589 370 -77 18 -269 42 -306 38 -9
+-1 -36 -3 -61 -5z"/>
+                <path d="M5607 7217 c-10 -226 -44 -370 -137 -563 -77 -163 -198 -327 -317
+-431 -74 -64 -207 -160 -233 -168 -29 -9 -24 -25 8 -25 53 0 240 -49 343 -89
+373 -146 684 -446 875 -846 72 -149 109 -252 154 -431 130 -507 130 -1125 -2
+-1769 -23 -110 -43 -213 -46 -230 l-5 -30 20 25 c77 97 273 463 366 685 152
+360 256 724 306 1070 113 773 -38 1481 -445 2090 -114 172 -194 267 -368 440
+-147 147 -327 294 -472 387 l-41 26 -6 -141z"/>
+                <path d="M4460 5799 c-439 -51 -752 -118 -1090 -234 -654 -224 -1401 -646
+-1950 -1100 -132 -109 -361 -341 -457 -461 -293 -370 -446 -731 -480 -1129
+l-6 -79 25 19 c157 122 237 170 374 224 157 62 280 85 459 85 195 0 332 -29
+528 -109 15 -7 17 2 17 91 1 469 386 1000 1200 1653 478 385 1050 785 1413
+990 31 18 57 39 57 47 0 8 -3 13 -7 13 -5 -1 -42 -5 -83 -10z"/>
+                <path d="M7202 4618 c-20 -20 -14 -71 19 -149 229 -554 277 -1114 134 -1567
+-14 -46 -34 -91 -44 -101 -13 -13 -41 -19 -112 -24 -175 -12 -333 -69 -495
+-178 -285 -192 -465 -536 -464 -889 2 -386 220 -730 575 -906 249 -123 512
+-151 775 -84 492 126 844 596 817 1089 -13 236 -115 479 -275 659 -90 100 -85
+84 -57 208 61 275 59 531 -6 834 -48 217 -153 458 -276 630 -117 163 -324 357
+-489 459 -55 33 -83 38 -102 19z"/>
+                <path d="M1195 2904 c-260 -40 -442 -121 -625 -278 -100 -86 -216 -238 -282
+-371 -99 -197 -119 -364 -73 -612 35 -189 73 -294 146 -402 171 -256 445 -434
+742 -481 121 -20 329 -8 452 25 166 45 150 47 257 -38 499 -402 1100 -565
+1693 -462 263 46 599 172 635 238 14 26 14 29 -7 46 -17 15 -49 19 -170 24
+-536 24 -1037 214 -1332 506 -103 101 -162 182 -224 306 -80 159 -90 206 -92
+465 -1 199 -4 233 -23 296 -110 366 -395 633 -762 715 -83 19 -276 32 -335 23z"/>
+                <path d="M2536 2388 c171 -341 436 -688 748 -977 293 -273 672 -523 1031 -681
+774 -340 1632 -392 2364 -142 l85 28 -81 44 c-380 202 -623 604 -623 1030 0
+61 -2 110 -5 110 -3 0 -73 -34 -157 -75 -352 -172 -710 -246 -1128 -232 -196
+7 -284 16 -480 53 -619 115 -1183 392 -1665 816 l-136 119 47 -93z"/>
+              </g>
+            </svg>
           </div>
           <div>
             <span className="font-display font-bold text-sm sm:text-base tracking-tight text-base-content block leading-tight">
@@ -142,11 +184,10 @@ const Navbar = memo(function Navbar() {
               <li key={link.path}>
                 <NavLink
                   to={link.path}
-                  className={`text-xs font-medium rounded-md px-3 py-2 transition-all min-h-9 flex items-center ${
-                    isActive 
-                      ? 'active font-semibold' 
+                  className={`text-xs font-medium rounded-md px-3 py-2 transition-all min-h-9 flex items-center ${isActive
+                      ? 'active font-semibold'
                       : 'text-base-content/80 hover:bg-base-200/50'
-                  }`}
+                    }`}
                 >
                   <Icon className="w-3.5 h-3.5" />
                   <span>{link.label}</span>
@@ -160,8 +201,8 @@ const Navbar = memo(function Navbar() {
       {/* Right Actions: Theme Selector & Mobile Toggle */}
       <div className="navbar-end gap-2">
         <div className="dropdown dropdown-end">
-          <label 
-            tabIndex={0} 
+          <label
+            tabIndex={0}
             className="btn btn-ghost btn-xs sm:btn-sm gap-1.5 font-mono text-[11px] border border-base-300/60 bg-base-100/40 backdrop-blur-sm cursor-pointer min-h-9 px-3 flex items-center justify-center"
             title="Theme settings"
           >
@@ -170,16 +211,16 @@ const Navbar = memo(function Navbar() {
             {themeMode === 'dark' && <Moon className="w-3.5 h-3.5 text-primary" />}
             <span className="hidden sm:inline capitalize">{themeMode}</span>
           </label>
-          <ul 
-            tabIndex={0} 
+          <ul
+            tabIndex={0}
             className="dropdown-content z-60 menu p-2 shadow-2xl bg-base-100 border border-base-300 rounded-lg w-40 mt-2 text-xs"
           >
             <li className="menu-title text-[10px] font-mono uppercase text-base-content/50 px-2 py-1">
               Select Mode
             </li>
             <li>
-              <button 
-                onClick={() => setThemeMode('light')} 
+              <button
+                onClick={() => setThemeMode('light')}
                 className={`flex items-center gap-2 rounded-md py-2 ${themeMode === 'light' ? 'active' : ''}`}
               >
                 <Sun className="w-3.5 h-3.5" />
@@ -187,8 +228,8 @@ const Navbar = memo(function Navbar() {
               </button>
             </li>
             <li>
-              <button 
-                onClick={() => setThemeMode('dark')} 
+              <button
+                onClick={() => setThemeMode('dark')}
                 className={`flex items-center gap-2 rounded-md py-2 ${themeMode === 'dark' ? 'active' : ''}`}
               >
                 <Moon className="w-3.5 h-3.5" />
@@ -196,8 +237,8 @@ const Navbar = memo(function Navbar() {
               </button>
             </li>
             <li>
-              <button 
-                onClick={() => setThemeMode('system')} 
+              <button
+                onClick={() => setThemeMode('system')}
                 className={`flex items-center gap-2 rounded-md py-2 ${themeMode === 'system' ? 'active' : ''}`}
               >
                 <Monitor className="w-3.5 h-3.5" />

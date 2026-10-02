@@ -83,7 +83,6 @@ export const getPublications = async (searchQuery = '', typeFilter = 'All', year
           type: item.type || 'Conference',
           doi: item.doi || '',
           pdfUrl: item.pdfUrl || '',
-          bibtex: item.bibtex || `@article{pub${item.$id || item.id || 'paper'},\n  title={${item.title}},\n  year={${item.year || 2025}}\n}`,
           abstract: item.abstract || '',
           tags: safeArray(item.tags),
           featured: Boolean(item.featured)

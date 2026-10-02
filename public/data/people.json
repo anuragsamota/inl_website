@@ -103,6 +103,14 @@
     "$id": "shubham-sharma",
     "name": "Shubham Sharma",
     "role": "M.Tech. Student",
-    "category": "Master's Students"
+    "category": "Master's Students",
+    "email":"m25cse032@iitj.ac.in"
+  },
+  {
+    "$id": "yeshwanth-gunda",
+    "name": "Yeshwanth Gunda",
+    "role": "M.Tech. Student",
+    "category": "Master's Students",
+    "email":"m25eei002@iitj.ac.in"
   }
 ]

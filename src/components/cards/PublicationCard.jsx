@@ -1,13 +1,7 @@
-import React, { useState, useCallback, memo } from 'react';
-import { BookOpen, FileText, ExternalLink, Quote } from 'lucide-react';
-import BibtexModal from '../common/BibtexModal';
+import React, { memo } from 'react';
+import { BookOpen, FileText, ExternalLink } from 'lucide-react';
 
 const PublicationCard = memo(function PublicationCard({ publication }) {
-  const [bibtexOpen, setBibtexOpen] = useState(false);
-
-  const toggleBibtex = useCallback(() => {
-    setBibtexOpen(prev => !prev);
-  }, []);
 
   return (
     <>
@@ -57,16 +51,8 @@ const PublicationCard = memo(function PublicationCard({ publication }) {
         </div>
 
         {/* Action Buttons */}
-        <div className="pt-3 border-t border-base-200 flex items-center justify-between gap-2">
+        <div className="pt-3 border-t border-base-200 flex items-center justify-end gap-2">
           
-          <button
-            onClick={toggleBibtex}
-            className="btn btn-ghost btn-xs gap-1 font-mono text-xs text-base-content/70 hover:text-primary"
-          >
-            <Quote className="w-3.5 h-3.5" />
-            <span>BibTeX</span>
-          </button>
-
           <div className="flex items-center gap-2">
             {publication.pdfUrl && (
               <a
@@ -96,12 +82,6 @@ const PublicationCard = memo(function PublicationCard({ publication }) {
         </div>
 
       </div>
-
-      <BibtexModal
-        isOpen={bibtexOpen}
-        onClose={toggleBibtex}
-        publication={publication}
-      />
     </>
   );
 });

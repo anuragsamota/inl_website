@@ -6,7 +6,7 @@ import { getPublications, getRuntimeFilters } from '../services/api';
 
 export default function Publications() {
   const [publications, setPublications] = useState([]);
-  const [types, setTypes] = useState(['All', 'Conference', 'Journal']);
+  const [types, setTypes] = useState(['All','Preprint', 'Conference', 'Journal']);
   const [years, setYears] = useState(['All', '2025', '2024', '2023']);
   const [searchQuery, setSearchQuery] = useState('');
   const [localQuery, setLocalQuery] = useState('');
@@ -71,7 +71,7 @@ export default function Publications() {
             Publications
           </h1>
           <p className="text-xs text-base-content/70 max-w-2xl">
-            Peer-reviewed papers in top IEEE/ACM conferences and transactions. Includes 1-click BibTeX exports.
+            Peer-reviewed papers in top IEEE/ACM conferences and transactions.
           </p>
         </div>
 
