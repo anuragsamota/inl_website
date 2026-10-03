@@ -62,7 +62,7 @@
     "name": "Nikhil Teja",
     "role": "PhD Student",
     "category": "PhD Students",
-    "avatar": "/media/people/Nikhil-Teja.png",
+    "avatar": "/media/people/Teja-Nikhil.jpeg",
     "bio": "I am a PhD student at the Intelligent Networks Lab, Indian Institute of Technology Jodhpur, under the supervision of Dr. Sidharth Sharma. My research focuses on developing efficient and scalable network systems for training and inference of deep neural networks (DNNs), including large language models (LLMs). I am particularly interested in exploring novel network architectures, protocols, and algorithms that can optimize the performance and resource utilization of distributed DNN training and inference workloads. My research also involves investigating the impact of network characteristics on the convergence and generalization of DNNs, and developing techniques to mitigate the adverse effects of network impairments on DNN performance.",
     "researchInterests": [
       "Network Systems for AI at Scale",
