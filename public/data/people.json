@@ -110,9 +110,19 @@
   },
   {
     "$id": "yeshwanth-gunda",
-    "name": "Yeshwanth Gunda",
+    "name": "Yeshwanth G S",
     "role": "M.Tech. Student",
     "category": "Master's Students",
-    "email":"m25eei002@iitj.ac.in"
+    "avatar": " ",
+    "bio": "I am a MTech Student at Intelligent Networks Lab, Indian Institute of Technology Jodhpur, under the Supervision of Dr. Sidharth Sharma, and Co-Supervised by Dr. Viswanathan Ramachandran, from Indian Institute of Technology Kharagpur. My research focuses on 5G and Beyond Wireless Communications, Secure-Semantic Communications, Dense Traffic IoT Applications, and Networks.",
+    "researchInterests": [
+      "5G and Beyond Wireless Communications",
+      "Secure-Semantic Communications",
+      "Dense Traffic IoT Applications",
+      "and Networks"
+    ],
+    "scholar": "https://scholar.google.com/citations?user=hfPjh7EAAAAJ&hl=en",
+    "website": "https://sites.google.com/iitj.ac.in/yeshwanth-gs/",
+    "email": "m25eei002@iitj.ac.in",
   }
 ]
